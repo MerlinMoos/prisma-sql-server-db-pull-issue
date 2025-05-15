@@ -1,0 +1,15 @@
+services:
+  test_mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: test_mssql
+    platform: linux/amd64
+    privileged: true
+
+    command: /bin/bash ./db-init/docker-entrypoint.sh
+    environment:
+      - SA_PASSWORD=Dev12345678
+      - ACCEPT_EULA=Y
+    ports:
+      - '1433:1433'
+    volumes:
+      - ./dev:/db-init
