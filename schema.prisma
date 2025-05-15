@@ -1,0 +1,12 @@
+generator client {
+  provider        = "prisma-client"
+  output          = "generated"
+  previewFeatures = ["multiSchema"]
+  moduleFormat    = "cjs"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = "sqlserver://localhost:4000;database=omi;user=sa;password=Dev12345678;encrypt=true;trustServerCertificate=true"
+  schemas  = ["dbo", "SEC"]
+}
